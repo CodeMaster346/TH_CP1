@@ -9,9 +9,9 @@ while True:
         name = input("What is your name? ")
         age = input("What is your age? ")
         fav_color = input("What is your favorite color? ")
-        sentence = f"Hello {name}, your favorite color is {fav_color}, and you are {age}."
+        sentence = f"{name.capitalize()}, your favorite color is {fav_color}, and you are {age}."
         print("--------------------------------------------------------------------------")
-        print(sentence)
+        print("Nice to meet you", sentence)
         print("--------------------------------------------------------------------------")
         userList.append(name)
         userList.append(sentence)
@@ -20,10 +20,14 @@ while True:
         for i in range(len(userList)):
             if userList[i] == user_input:
                 print("--------------------------------------------------------------------------")
-                print(userList[i+1])
+                print("Hello again", userList[i+1])
                 print("--------------------------------------------------------------------------")
     elif options == 3:
+        print("--------------------------------------------------------------------------")
+        print("Bye")
+        print("--------------------------------------------------------------------------")
         raise SystemExit
     else:
+        print("--------------------------------------------------------------------------")
         print("The number you entered was not recognised.")
-
+        print("--------------------------------------------------------------------------")
