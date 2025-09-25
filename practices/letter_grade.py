@@ -1,10 +1,11 @@
 # TH 2nd What Is My Grade
 gradeList = []
-
+# makes sure that the code will keep running until the user decides to exit and the code raises system exit
 while True:
-    percent = float(input("What is your grade percentage: "))
-    user_choice = input("Type 'New' if you want to input a new grade\npercentage, or type 'Exit' if you want to exit: ").lower().strip()
-    if user_choice == "New":
+    user_choice = int(input("1. New Grade Input\n2. Exit\nInput the number for the option you want: "))
+    if user_choice == 1:
+        percent = float(input("What is your grade percentage: "))
+        # uses the user's grade percentage and applies a specific letter grade, changes it into the gpa form of the letter grade and adds it to the list to make it so that you can get the everage if they input more than one percentage
         if percent >= 94:
             print("Your letter grade is an A")
             gradeGpaForm = 4.0
@@ -53,7 +54,8 @@ while True:
             print("Your letter grade is an F")
             gradeGpaForm = 0.0
             gradeList.append(gradeGpaForm)
-
+        
+        #uses gpa form of every letter grade to get an average gpa for the grades and apply it back so you get the average letter grade
         if len(gradeList) > 1:
             GPA = sum(gradeList)/len(gradeList)
             if GPA >= 4.0:
@@ -80,5 +82,5 @@ while True:
                 print("Your average letter grade for grades given is an D-")
             else:
                 print("Your average letter grade for grades given is an F")
-        elif user_choice == "exit":
-            raise SystemExit
+    elif user_choice == 2:
+        raise SystemExit
