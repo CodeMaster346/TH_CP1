@@ -4,7 +4,7 @@ import random
 def start_game():
     print("Welcome to the Number Guessing Game!")
     print("I'm thinking of a number between 1 and 100.")
-    number_to_guess =2 #random.randint(1, 100)
+    number_to_guess = random.randint(1, 100)
     max_attempts = 10
     attempts = 0
     game_over = False
