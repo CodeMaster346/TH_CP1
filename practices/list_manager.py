@@ -20,7 +20,9 @@ while True:
             print("---------------------------------------------")
             print("Item marked!")
             print("---------------------------------------------")
-            shopping_items[item_choice] = f"*{item_choice}"
+            for i in range(len(shopping_items)):
+                if shopping_items[i] == item_choice:
+                    shopping_items[i] = f"*{item_choice}"
         else:
             print("---------------------------------------------")
             print("Item not recognised.")
