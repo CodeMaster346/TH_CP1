@@ -13,6 +13,7 @@ while True:
     user_decision = int(input("Input the number of the option you want to choose or type 4 if you wish to exit: "))
 
     if user_decision == 1 and bot_desision == 2:
+        print("=======================================")
         print("\033[31mYou chose:\n\n\n _.-.-.-.\n:_|_|_|_|_\n|_|_|\__  \ \n|    . '  |\n|   (    /\n \______/\033[0m\n")
         print("=======================================")
         print("\033[32mThe Bot chose:\n\n\n   _.-._\n _| | | |\n| | | | |\n| | | | |\n| : ' : | .-.\n|       |/ /\n|     ,-' /\n|    /    |\n|         /\n \_______/\033[0m")
@@ -20,6 +21,7 @@ while True:
         print("\nYou lost!")
         time.sleep(5)
     elif user_decision == 1 and bot_desision == 1:
+        print("=======================================")
         print("\033[31mYou chose:\n\n\n _.-.-.-.\n:_|_|_|_|_\n|_|_|\__  \ \n|    . '  |\n|   (    /\n \______/\n\033[0m")
         print("=======================================")
         print("\033[32mThe Bot chose:\n\n\n _.-.-.-.\n:_|_|_|_|_\n|_|_|\__  \ \n|    . '  |\n|   (    /\n \______/\033[0m")
@@ -27,6 +29,7 @@ while True:
         print("\nIt was a draw!")
         time.sleep(5)
     elif user_decision == 1 and bot_desision == 3:
+        print("=======================================")
         print("\033[31mYou chose:\n\n\n _.-.-.-.\n:_|_|_|_|_\n|_|_|\__  \ \n|    . '  |\n|   (    /\n \______/\n\033[0m")
         print("=======================================")
         print("\033[32mThe Bot chose:\n\n\n    .-.\n    | |    / ) \n    | |   / /\n    | |  / /\n _.-| |_/ /\n: \( \   /\n|\_)\ \  |\n|    ] \ |\n|   (    /\n \______/\033[0m")
@@ -34,13 +37,28 @@ while True:
         print("\nYou won! Congrats!")
         time.sleep(5)
     elif user_decision == 2 and bot_desision == 2:
-        print("placeholder for a draw")
+        print("=======================================")
+        print("\033[31mYou chose:\n\n\n   _.-._\n _| | | |\n| | | | |\n| | | | |\n| : ' : | .-.\n|       |/ /\n|     ,-' /\n|    /    |\n|         /\n \_______/\033[0m")
+        print("=======================================")
+        print("\033[32mThe Bot chose:\n\n\n   _.-._\n _| | | |\n| | | | |\n| | | | |\n| : ' : | .-.\n|       |/ /\n|     ,-' /\n|    /    |\n|         /\n \_______/\033[0m")
+        print("=======================================")
+        print("\nIt was a draw!")
         time.sleep(5)
     elif user_decision == 2 and bot_desision == 1:
-        print("placeholder for a player win")
+        print("=======================================")
+        print("\033[31mYou chose:\n\n\n   _.-._\n _| | | |\n| | | | |\n| | | | |\n| : ' : | .-.\n|       |/ /\n|     ,-' /\n|    /    |\n|         /\n \_______/\033[0m")
+        print("=======================================")
+        print("\033[32mThe Bot chose:\n\n\n _.-.-.-.\n:_|_|_|_|_\n|_|_|\__  \ \n|    . '  |\n|   (    /\n \______/\033[0m")
+        print("=======================================")
+        print("You Won! Congrats!")
         time.sleep(5)
     elif user_decision == 2 and bot_desision == 3:
-        print("placeholder for a player lose")
+        print("=======================================")
+        print("\033[31mYou chose:\n\n\n   _.-._\n _| | | |\n| | | | |\n| | | | |\n| : ' : | .-.\n|       |/ /\n|     ,-' /\n|    /    |\n|         /\n \_______/\033[0m")
+        print("=======================================")
+        print("\033[32mThe Bot chose:\n\n\n    .-.\n    | |    / ) \n    | |   / /\n    | |  / /\n _.-| |_/ /\n: \( \   /\n|\_)\ \  |\n|    ] \ |\n|   (    /\n \______/\033[0m")
+        print("=======================================")
+        print("You lost!")
         time.sleep(5)
     elif user_decision == 3 and bot_desision == 2:
         print("placeholder for a player win")
