@@ -1,28 +1,19 @@
 TH 2nd tic tac toe pseudocode
 
-CONTAINER ONE with numbers 1 2 and 3
-CONTAINER TWO with numbers 4 5 and 6
-CONTAINER THREE with numbers 7 8 and 9
+CONTAINER ONE with numbers 1-9
 
 SET win AS 0
 
 
 
 REPEAT code UNTIL win is set AS 1
-    DISPLAY first container with equal spaces in between the numbers 
-    DISPLAY second container with the same equal spaces in between the numbers 
-    DISPLAY third container with the same equal spaces in between the numbers 
-    SET in_list AS no
+    DISPLAY first three numbers of container with equal spaces in between the numbers 
+    DISPLAY second three numbers of container with the same equal spaces in between the numbers 
+    DISPLAY last three numbers of container with the same equal spaces in between the numbers 
     PROMPT first player to choose the number of the space they want
     SET first_player_choice as number given by the user
-    IF first_player_choice IS IN CONTAINER ONE THEN
-        SET in_list AS yes
-    ELSE, IF first_player_choice IS IN CONTAINER TWO THEN
-        SET in_list AS yes
-    ELSE, IF first_player_choice IS IN CONTAINER THREE THEN
-        SET in_list AS yes
 
-    IF in_list is set AS no OR first_player_choice IS NOT a number THEN
+    IF in_list isn't in list THEN
         REPEAT code until user gives a number that is not filled
             DISPLAY first container with equal spaces in between the numbers 
             DISPLAY second container with the same equal spaces in between the numbers 
@@ -81,24 +72,18 @@ REPEAT code UNTIL win is set AS 1
         DISPLAY Hooray! Player one has won! 
         SET win AS 1
     ELSE if none of these conditions are met THEN
-        DISPLAY first container with equal spaces in between the numbers 
-        DISPLAY second container with the same equal spaces in between the numbers 
-        DISPLAY third container with the same equal spaces in between the numbers 
+        DISPLAY first three numbers of with equal spaces in between the numbers 
+        DISPLAY second three numbers of container with the same equal spaces in between the numbers 
+        DISPLAY last three numbers of container with the same equal spaces in between the numbers 
         SET in_list AS no
         PROMPT second player to choose the number of the space they want
         SET second_player_choice as number given by the user
-        IF second_player_choice IS IN CONTAINER ONE THEN
-        SET in_list AS yes
-        ELSE, IF second_player_choice IS IN CONTAINER TWO THEN
-            SET in_list AS yes
-        ELSE, IF second_player_choice IS IN CONTAINER THREE THEN
-            SET in_list AS yes
 
-        IF in_list is set AS no OR second_player_choice IS NOT a number THEN
+        IF second_player_choice isn't in list THEN
             REPEAT code until user gives a number that is not filled
-                DISPLAY first container with equal spaces in between the numbers 
-                DISPLAY second container with the same equal spaces in between the numbers 
-                DISPLAY third container with the same equal spaces in between the numbers 
+                DISPLAY first three numbers of container with equal spaces in between the numbers 
+                DISPLAY second three numbers of with container the same equal spaces in between the numbers 
+                DISPLAY last three numbers of container with the same equal spaces in between the numbers 
                 PROMPT second player to choose the number of the space they want
                 SET second_player_choice as number given by the user
         ELSE if this condition is not met
