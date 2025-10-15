@@ -5,10 +5,10 @@ lowercaseList = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 numberList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 specialList = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "[", "]", "{", "}", "|", ";", ":", ",", ".", "<", ">", "?"]
 userPasswordList = []
-strengthScoreList = []
+userStrengthScoreList = []
 
 while True:
-    user_choice = input("1. Check password strength\n2. ")
+    user_choice = int(input("1. Check password strength\n2. See all passwords entered\n3. Compare to common weak passwords\n4. Exit\nEnter the number for the option you want to choose: "))
     length = 0
     upper = 0
     lower = 0
@@ -65,22 +65,42 @@ while True:
             complexity_value = ":("
     
         strength_score = f"{strength}/5"
-
+        print("-----------------------------------------------------------------------------------------------------------")
         print(f"[{complexity_value}]\nStrength Score: {strength_score}\nPassword Strength: {password_strength}") 
-
+        print("-----------------------------------------------------------------------------------------------------------")
         if length == 0:
+            print("-----------------------------------------------------------------------------------------------------------")
             print("You need to make your password longer.")
+            print("-----------------------------------------------------------------------------------------------------------")
         if upper == 0:
+            print("-----------------------------------------------------------------------------------------------------------")
             print("You need to add an uppercase letter.")
+            print("-----------------------------------------------------------------------------------------------------------")
         if lower == 0:
+            print("-----------------------------------------------------------------------------------------------------------")
             print("You need to add a lowercase letter.")
+            print("-----------------------------------------------------------------------------------------------------------")
         if num == 0:
+            print("-----------------------------------------------------------------------------------------------------------")
             print("You need to add a number.")
+            print("-----------------------------------------------------------------------------------------------------------")
         if special == 0:
+            print("-----------------------------------------------------------------------------------------------------------")
             print("You need to add a special character.")
+            print("-----------------------------------------------------------------------------------------------------------")
         elif strength == 5:
+            print("-----------------------------------------------------------------------------------------------------------")
             print("Your password needs no changes.")
+            print("-----------------------------------------------------------------------------------------------------------")
         userPasswordList.append(password)
-        strengthScoreList.append()
+        userStrengthScoreList.append(strength_score)
         
     elif user_choice == 2:
+        iteration = 1
+        print("-----------------------------------------------------------------------------------------------------------")
+        for passwords in userPasswordList:
+            print(f"{iteration}. {userPasswordList[iteration - 1]}\nStrength Score: {userStrengthScoreList[iteration-1]}")
+            iteration += 1
+        print("-----------------------------------------------------------------------------------------------------------")
+    elif user_choice == 3:
+        user_input = int(input("1. 12345\n2. 123456789\n3. password\n4. admin\n5. 1111111\n6. qwerty\n7. asdfgh\n8. FIRSTNAME LASTNAME\n9. PETS NAME\n10. MM/DD/YYYY\n11. PHONE NUMBER"))
