@@ -2,58 +2,49 @@
 
 #CONTAINER that holds the different characters set to variable new_letter
 
-#DEFINE the FUNCTION for encoding which needs the VARIABLE sentence
-#   FOR every character in the VARIABLE sentence
-#       IF charater IS a letter THEN
-#           SET new_letter_value AS the ASCII version of that character PLUS the shift number
-#           SET new_letter AS the LETTER version of new_letter_value
-#           ADD new_letter to CONTAINER
-#       ELSE
-#           ADD character to CONTAINER
-
-#DEFINE the FUNCTION for decoding which needs the VARIABLE sentence
-#   SET instance AS 1
-#   LOOP that runs 26 times   
-#       FOR every character in the VARIABLE sentence
-#           IF character IS A or a
-#               
-#           ELSE, IF charater IS a letter THEN
-#               SET new_letter_value AS the ASCII version of that character MINUS instance
-#               SET new_letter AS the LETTER version of new_letter_value
-#               ADD new_letter to CONTAINER
-#           ELSE
-#               ADD character to CONTAINER
-#               SET instance AS instance + 1
+#DEFINE encode/decode function
+#    SET up a result sentence
+#    FOR every character IN the VARIABLE sentence
+#        IF character is in the alphabet THEN
+#            IF character is uppercase
+#                ADD the shifted uppercase character to the result sentence
+#            ELSE, IF character is lowercase THEN
+#                ADD the shifted lowercase character to the result sentence
+#        ELSE, if the alphabet check condition is not met
+#            ADD character to result sentence
+#    DISPLAY result sentence
 
 #PROMPT user to enter the sentence they want to encode/decode
 #SET sentence AS the INPUT the user gives
 #PROMPT user to enter the option to encode or decode the sentence
-#SET encode_or_decode AS the INPUT the user gives
-#IF encode_or_decode IS SET AS 1 THEN
+#SET encode_decode AS the INPUT the user gives
+#IF encode_decode IS SET AS 1 THEN
 #   PROMPT user to give what number they want to shift by
 #   SET shift_number AS the INPUT the user gives
 #   RUN encode FUNCTION
-#   DISPLAY the contents of the CONTAINER
 #ELSE, IF encode_or_decode IS SET AS 2 THEN
-#   RUN decode FUNCTION
-#   DISPLAY the contents of the CONTAINER
+#   PROMPT user to give the negative version of the origional shift number
+#   SET shift_number AS the INPUT the user gives
+#   RUN decode function
 newSentenceList = []
 
-
-def encode(sentence):
+def encode_or_decode(sentence):
+    result = ""
     for char in sentence:
         if char.isalpha():
-            new_letter_value = ord(f"{char}") + shift_number
-            new_letter = chr(new_letter_value)
-            newSentenceList.append(new_letter)
+            if char.isupper():
+                result += chr((ord(char) - 65 + shift_number) % 26 + 65)
+            elif char.islower():
+                result += chr((ord(char) - 97 + shift_number) % 26 + 97)
         else:
-            newSentenceList.append(char)
+            result += char
+    print(result)
 
 sentence = input("Give me the sentence or phrase you want to encode/decode: ")
-encode_or_decode = int(input("1. Encode\n2. Decode\nGive me the number of the option you want to choose: "))
-if encode_or_decode == 1:
-    shift_number = int(input("What number do you want to shift the sentence by(Max number is 26)? "))
-    encode(sentence)
-    new_sentence = ''.join(newSentenceList)
-    print(new_sentence)
-elif encode_or_decode == 2:
+encode_decode = int(input("1. Encode\n2. Decode\nGive me the number of the option you want to choose: "))
+if encode_decode == 1:
+    shift_number = int(input("What number do you want to shift the sentence by? "))
+    encode_or_decode(sentence)
+elif encode_decode == 2:
+    shift_number = int(input("Give me the negative version of the origional shift number? "))    
+    encode_or_decode(sentence)
