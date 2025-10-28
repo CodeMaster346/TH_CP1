@@ -27,11 +27,11 @@ def monster_turn(player_type, defense):
         print(f"The monster rolled a {monster_damage_roll} for damage!")
         print("===============================")
         time.sleep(2)
-        playerHealthList[player_type - 1] -= monster_damage_roll
-        if playerHealthList[player_type - 1]  <= 0:
-            playerHealthList[player_type - 1]  = 0 
+        playerHealthList[player_type] -= monster_damage_roll
+        if playerHealthList[player_type]  <= 0:
+            playerHealthList[player_type]  = 0 
         print("===============================")
-        print(f"You now have {playerHealthList[player_type - 1] } HP left.")
+        print(f"You now have {playerHealthList[player_type] } HP left.")
         print("===============================")
         time.sleep(2)
     else:
@@ -41,152 +41,148 @@ def monster_turn(player_type, defense):
     time.sleep(2)
     return hp
 
-def user_turn(player_type, monster_defense):
-    print("=========================================")
-    attack_type = int(input("1. Normal Attack\n2. Wild Attack(can double damage but damages yourself as well)\n3. Drink Health Potion(Heals 10 HP)\n4. Flee(may or may not actually work)\nInput the number of the option you want to choose: "))
-    print("=========================================")
-    if attack_type == 1:
+def user_turn_choice_one(player_type, monster_defense):
+    print("===============================")
+    print("You chose Normal Attack!")
+    print("===============================")
+    time.sleep(2)
+    if fighter_class == "Fighter":
+        attack_roll = rand.randint(1, 20) + rand.randint(1, 20) + 3
         print("===============================")
-        print("You chose Normal Attack!")
+        print(f"You rolled a {attack_roll} to attack!")
         print("===============================")
-        time.sleep(2)
-        if fighter_class == "Fighter":
-            attack_roll = rand.randint(1, 20) + rand.randint(1, 20) + 3
-            print("===============================")
-            print(f"You rolled a {attack_roll} to attack!")
-            print("===============================")
-        elif fighter_class == "Mage":
-            attack_roll = rand.randint(1, 20) + rand.randint(1, 20) - 1
-            print("===============================")
-            print(f"You rolled a {attack_roll} to attack!")
-            print("===============================")
-        else:
-            attack_roll = rand.randint(1, 20) + rand.randint(1, 20)
-            print("===============================")
-            print(f"You rolled a {attack_roll} to attack!")
-            print("===============================")
-        time.sleep(2)
-        if attack_roll > monster_defense:
-            print("===============================")
-            print("You hit the monster!")
-            print("===============================")
-            time.sleep(2)
-            if fighter_class == "Fighter":
-                damage_roll = rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 4
-                print("===============================")
-                print(f"You rolled a {damage_roll} for damage!")
-                print("===============================")
-            elif fighter_class == "Mage":
-                damage_roll = rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 6
-                print("===============================")
-                print(f"You rolled a {damage_roll} for damage!")
-                print("===============================")
-            else:
-                damage_roll = rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 10
-                print("===============================")
-                print(f"You rolled a {damage_roll} for damage!")
-                print("===============================")
-            time.sleep(2)
-            monsterHealthList[monster_and_stats] -= damage_roll
-            if monsterHealthList[monster_and_stats] <= 0:
-                monsterHealthList[monster_and_stats] = 0
-            print("===============================")
-            print(f"The monster now has {monsterHealthList[monster_and_stats]}\nHP left.")
-            print("===============================")
-            time.sleep(2)
-        else:
-            print("===============================")
-            print("You missed!")
-            print("===============================")
-        time.sleep(2)
-    elif attack_type == 2:
+    elif fighter_class == "Mage":
+        attack_roll = rand.randint(1, 20) + rand.randint(1, 20) - 1
         print("===============================")
-        print("You chose Wild Attack!")
+        print(f"You rolled a {attack_roll} to attack!")
+        print("===============================")
+    else:
+        attack_roll = rand.randint(1, 20) + rand.randint(1, 20)
+        print("===============================")
+        print(f"You rolled a {attack_roll} to attack!")
+        print("===============================")
+    time.sleep(2)
+    if attack_roll > monster_defense:
+        print("===============================")
+        print("You hit the monster!")
         print("===============================")
         time.sleep(2)
         if fighter_class == "Fighter":
-            attack_roll = rand.randint(1, 20) + rand.randint(1, 20) + 3
-            print(f"You rolled a {attack_roll} to attack!")
+            damage_roll = rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 4
+            print("===============================")
+            print(f"You rolled a {damage_roll} for damage!")
+            print("===============================")
         elif fighter_class == "Mage":
-            attack_roll = rand.randint(1, 20) + rand.randint(1, 20) - 1
-            print(f"You rolled a {attack_roll} to attack!")
+            damage_roll = rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 6
+            print("===============================")
+            print(f"You rolled a {damage_roll} for damage!")
+            print("===============================")
         else:
-            attack_roll = rand.randint(1, 20) + rand.randint(1, 20)
-            print(f"You rolled a {attack_roll} to attack!")
+            damage_roll = rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 10
+            print("===============================")
+            print(f"You rolled a {damage_roll} for damage!")
+            print("===============================")
         time.sleep(2)
-        if attack_roll > monster_defense:
-            print("===============================")
-            print("You hit the monster!")
-            print("===============================")
-            time.sleep(2)
-            if fighter_class == "Fighter":
-                damage_roll = (rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 4) * 2
-                print("===============================")
-                print(f"You rolled a {damage_roll} for damage!")
-                print("===============================")
-            elif fighter_class == "Mage":
-                damage_roll = (rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 6) * 2
-                print("===============================")
-                print(f"You rolled a {damage_roll} for damage!")
-                print("===============================")
-            else:
-                damage_roll = (rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 10) * 2
-                print("===============================")
-                print(f"You rolled a {damage_roll} for damage!")
-                print("===============================")
-            time.sleep(2)
-            monsterHealthList[monster_and_stats] -= damage_roll
-            if monsterHealthList[monster_and_stats] <= 0:
-                monsterHealthList[monster_and_stats] = 0
-            print("===============================")
-            print(f"The monster now has {monsterHealthList[monster_and_stats]}\nHP left.")
-            print("===============================")
-            time.sleep(2)
-            self_damage = rand.randint(1, 6)
-            playerHealthList -= self_damage
-            print("===============================")
-            print(f"You hurt yourself in the \nprocess and lost {self_damage} HP!\nYou now have {hp} HP left.")
-            print("===============================")
-            time.sleep(2)
-        else:
-            print("===============================")
-            print("You missed!")
-            print("===============================")
-    elif attack_type == 3:
-        healthPotionsFunctionality[0] -= 1
-        if health_potions < 0:
-            print("===============================")
-            print("You dont have any health\npotions to drink!")
-            print("===============================")
-            time.sleep(2)
-        else:
-            print("===============================")
-            print(f"You chose to Drink a Health\npotion and regained 10 HP.\nYou now have {healthPotionsFunctionality[0]}\nhealth potions left.")
-            print("===============================")
-            time.sleep(2)
-            playerHealthList[player_type] += 10
-            print("===============================")
-            print(f"You now have {playerHealthList[player_type - 1]} HP.")
-            print("===============================")
-            time.sleep(2)
-    elif attack_type == 4:
-        can_flee = rand.randint(1, 2)
-        if can_flee == 1:
-            print("===============================")
-            print("You successfully fleed the battle!")
-            print("===============================")
-            raise SystemExit
-        else:
-            print("===============================")
-            print("You were not able to flee and took 4 damage.")
-            print("===============================")
-            playerHealthList[player_type] -= 4
-            time.sleep(2)
+        monsterHealthList[monster_and_stats] -= damage_roll
+        if monsterHealthList[monster_and_stats] <= 0:
+            monsterHealthList[monster_and_stats] = 0
+        print("===============================")
+        print(f"The monster now has {monsterHealthList[monster_and_stats]}\nHP left.")
+        print("===============================")
+        time.sleep(2)
     else:
         print("===============================")
-        print("You did not choose a valid option.\nYou lose your turn. Sorry!")
+        print("You missed!")
+        print("===============================")
+    time.sleep(2)
+
+def user_turn_option_two(player_type, monster_defense):
+
+    print("===============================")
+    print("You chose Wild Attack!")
+    print("===============================")
+    time.sleep(2)
+    if fighter_class == "Fighter":
+        attack_roll = rand.randint(1, 20) + rand.randint(1, 20) + 3
+        print(f"You rolled a {attack_roll} to attack!")
+    elif fighter_class == "Mage":
+        attack_roll = rand.randint(1, 20) + rand.randint(1, 20) - 1
+        print(f"You rolled a {attack_roll} to attack!")
+    else:
+        attack_roll = rand.randint(1, 20) + rand.randint(1, 20)
+        print(f"You rolled a {attack_roll} to attack!")
+    time.sleep(2)
+    if attack_roll > monster_defense:
+        print("===============================")
+        print("You hit the monster!")
         print("===============================")
         time.sleep(2)
+        if fighter_class == "Fighter":
+            damage_roll = (rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 4) * 2
+            print("===============================")
+            print(f"You rolled a {damage_roll} for damage!")
+            print("===============================")
+        elif fighter_class == "Mage":
+            damage_roll = (rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 6) * 2
+            print("===============================")
+            print(f"You rolled a {damage_roll} for damage!")
+            print("===============================")
+        else:
+            damage_roll = (rand.randint(1, 8) + rand.randint(1, 8) + rand.randint(1, 8) + 10) * 2
+            print("===============================")
+            print(f"You rolled a {damage_roll} for damage!")
+            print("===============================")
+        time.sleep(2)
+        monsterHealthList[monster_and_stats] -= damage_roll
+        if monsterHealthList[monster_and_stats] <= 0:
+            monsterHealthList[monster_and_stats] = 0
+        print("===============================")
+        print(f"The monster now has {monsterHealthList[monster_and_stats]}\nHP left.")
+        print("===============================")
+        time.sleep(2)
+        self_damage = rand.randint(1, 6)
+        playerHealthList[player_type] -= self_damage
+        print("===============================")
+        print(f"You hurt yourself in the \nprocess and lost {self_damage} HP!\nYou now have {playerHealthList[player_type]} HP left.")
+        print("===============================")
+        time.sleep(2)
+    else:
+        print("===============================")
+        print("You missed!")
+        print("===============================")
+
+def user_turn_choice_three(player_type):
+    healthPotionsFunctionality[0] -= 1
+    if healthPotionsFunctionality[0] == 0:
+        print("===============================")
+        print("You dont have any health\npotions to drink!")
+        print("===============================")
+        time.sleep(2)
+    else:
+        print("===============================")
+        print(f"You chose to Drink a Health\npotion and regained 10 HP.\nYou now have {healthPotionsFunctionality[0]}\nhealth potions left.")
+        print("===============================")
+        time.sleep(2)
+        playerHealthList[player_type] = playerHealthList[player_type] + 10
+        print("===============================")
+        print(f"You now have {playerHealthList[player_type]} HP.")
+        print("===============================")
+        time.sleep(2)
+
+def user_turn_choice_four(player_type):
+    can_flee = rand.randint(1, 2)
+    if can_flee == 1:
+        print("===============================")
+        print("You successfully fleed the battle!")
+        print("===============================")
+        raise SystemExit
+    else:
+        print("===============================")
+        print("You were not able to flee and took 4 damage.")
+        print("===============================")
+        playerHealthList[player_type] -= 4
+        time.sleep(2)
+
 
 
 print("Welcome User! Before we start, I just need some info from you.")
@@ -237,33 +233,62 @@ if first_attack == 1:
     print("===============================")
     print("You attack first!")
     print("===============================")
-    health_potions = 5
     while hp > 0 and monsterHealthList[monster_and_stats] > 0:
-        user_turn(player_type, monster_defense)
+        ("===============================")
+        user_choice = int(input("1. Normal Attack\n2. Wild attack\n3. Drink Health Potion\n4. Flee\nInput the number of the action you want to choose: "))
+        ("===============================")
+        if user_choice == 1:
+            user_turn_choice_one(player_type, monster_defense)
+        elif user_choice == 2:
+            user_turn_option_two(player_type, monster_defense)
+        elif user_choice == 3:
+            user_turn_choice_three(player_type)
+        elif user_choice == 4:
+            user_turn_choice_four(player_type)
+        else:
+            print("===============================")
+            print("Invalid Input, you lose your turn. Sorry!")
+            print("===============================")
+            time.sleep(2)
+
         if monsterHealthList[monster_and_stats] <= 0:
             print("===============================")
             print(f"{monsterList[monster_and_stats]} has been defeated!\n{user_name} wins!")
             print("===============================")
         else:
             monster_turn(player_type, defense)
-            if hp <= 0:
-                print("===============================")
-                print(f"{user_name} has been defeated.\n{monsterList[monster_and_stats]} wins!")
-                print("===============================")
+        if playerHealthList[player_type] <= 0:
+            print("===============================")
+            print(f"{user_name} has been defeated.\n{monsterList[monster_and_stats]} wins!")
+            print("===============================")
 else:
     print("===============================")
     print("The monster attacks first!")
     print("===============================")
-    health_potions = 5
-    while hp > 0 and monsterHealthList[monster_and_stats] > 0:
+    while playerHealthList[player_type] > 0 and monsterHealthList[monster_and_stats] > 0:
         monster_turn(player_type, defense)
-        if hp <= 0:
+        if playerHealthList[player_type] <= 0:
             print("===============================")
             print(f"{user_name} has been defeated.\n{monsterList[monster_and_stats]} wins!")
             print("===============================")
         else:
             
-            user_turn(player_type, monster_defense)
+            print("===============================")
+            user_choice = int(input("1. Normal Attack\n2. Wild attack\n3. Drink Health Potion\n4. Flee\nInput the number of the action you want to choose: "))
+            print("===============================")
+            if user_choice == 1:
+                user_turn_choice_one(player_type, monster_defense)
+            elif user_choice == 2:
+                user_turn_option_two(player_type, monster_defense)
+            elif user_choice == 3:
+                user_turn_choice_three(player_type)
+            elif user_choice == 4:
+                user_turn_choice_four(player_type)
+            else:
+                print("===============================")
+                print("Invalid Input, you lose your turn. Sorry!")
+                print("===============================")
+                time.sleep(2)
             if monsterHealthList[monster_and_stats] <= 0:
                 print("===============================")
                 print(f"{monsterList[monster_and_stats]} has been defeated!\n{user_name} wins!")
