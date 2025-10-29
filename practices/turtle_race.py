@@ -4,8 +4,6 @@ import random
 import time
 import winsound
 
-
-
 def setup():
     print("Make sure to have this screen split so that you can see the turtle window and console at the same time.")
     turtle_color_1 = input("Input the color for the first turtle(no uppercase or spaces): ").lower()
@@ -23,10 +21,15 @@ def setup():
     screen.title("Turtle Race")
     screen.bgcolor("limegreen")
     turtle1 = turtle.Turtle()
+    turtle1.shape("turtle")    
     turtle2 = turtle.Turtle()
+    turtle2.shape("turtle")
     turtle3 = turtle.Turtle()
+    turtle3.shape("turtle")   
     turtle4 = turtle.Turtle()
+    turtle4.shape("turtle")
     turtle5 = turtle.Turtle()
+    turtle5.shape("turtle")
     turtle1.color(f"{fixed_turtle_color_1}")
     turtle2.color(f"{fixed_turtle_color_2}")
     turtle3.color(f"{fixed_turtle_color_3}")
@@ -34,14 +37,19 @@ def setup():
     turtle5.color(f"{fixed_turtle_color_5}")
     turtle1.penup()
     turtle1.goto(-300, 200)
+    turtle1.pendown()
     turtle2.penup()
     turtle2.goto(-300, 100)
+    turtle2.pendown()
     turtle3.penup()
     turtle3.goto(-300, 0)
+    turtle3.pendown()
     turtle4.penup()
     turtle4.goto(-300, -100)
+    turtle4.pendown()
     turtle5.penup()
     turtle5.goto(-300, -200)
+    turtle5.pendown()
     finish_line_turtle = turtle.Turtle()
     finish_line_turtle.hideturtle()
     finish_line_turtle.penup()
