@@ -1,1 +1,1 @@
-while hp > 0 and monsterHealthList[monster_and_stats] > 0:
+class Player:
