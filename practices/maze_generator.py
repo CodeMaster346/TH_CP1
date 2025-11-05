@@ -1,3 +1,4 @@
+#TH 2nd Maze Generator Program
 import turtle
 import random
 
