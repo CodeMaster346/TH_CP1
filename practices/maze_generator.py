@@ -3,7 +3,7 @@ import turtle
 import random
 
 # ==== CONFIG ====
-CELL_SIZE = 15 # Size of each maze cell
+CELL_SIZE = 9 # Size of each maze cell
 WALL_COLOR = "black"
 PATH_COLOR = "white"
 PLAYER_COLOR = "blue"
@@ -98,10 +98,10 @@ def solve_maze(maze, start, end):
 def main():
     turtle.setup(width=800, height=800)
     turtle.title("Turtle Maze Game")
-    size = int(turtle.numinput("Maze Complexity", "Enter maze size (10–50, must be an even number or maze wont generate properly):"))
+    size = int(turtle.numinput("Maze Complexity", "Enter maze size (10–80) must be an even number or maze wont generate properly):"))
     size += 1
 
-    if size < 11 or size > 51:
+    if size < 11 or size > 81:
         print("Invalid Number")
 
     maze = generate_maze(size)
