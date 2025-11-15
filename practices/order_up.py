@@ -1,8 +1,14 @@
 #TH 2nd Order Up
 
-def taxCalc(price):
-    price = (1/100) * price
-    return price
+def receipt(new_price):
+    print(f"Drink: {drink}\nMain Course: {main_course}\nSides: {side1}, {side2}\nTotal Price (with tax): ${new_price}")
+
+def tax_calc(price):
+
+    price = ((1/100) * price) + price
+    new_price = f"{price:.2f}"
+    receipt(new_price)
+    
     
 drinkChoices = {'Coke' : 1.00, 'Root Beer' : 0.50, 'Water' : 0, 'Lemonade' : 3.00}
 mainCourses = {'Burger' : 10.00, 'Nachos' : 8.00, 'Shredded Pork' : 15.00, 'Chicken Sandwich' : 10.00, 'Full Pizza' : 20.00}
@@ -21,5 +27,4 @@ print("Salad\nFries\nCheese Fries")
 side2 = input("What side would you like for your second side? ")
 
 price = drinkChoices[f'{drink}'] + mainCourses[f'{main_course}'] + sideDishes[f'{side1}'] + sideDishes[f'{side2}']
-taxCalc(price)
-print(f"{price:.2f}")
+tax_calc(price)
