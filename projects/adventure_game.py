@@ -4,7 +4,7 @@ import random
 
 powerUpOptions = ["Health Potions", "Strength Potions", "Extra Armor", "Sword", "Bow and Arrow", "Wizard staff", "Firebending Potion", "Speed Potion"]
 statDictionary = {"Player Health" : 30, "Player Damage" : 5, "Guard Health" : 40, "Guard Damage" : 8, "Witch Health" : 35, "Witch Damage" : 10}
-powerUps = []
+powerUps = ["0", "Speed Potion"]
 
 def restart():
     restarting_choice = input("Do you wish to restart(Y/N): ")
@@ -39,6 +39,17 @@ def battle(monster):
         print("It is your turn!")
         print(f"Your stats are:\nHealth = {statDictionary['Player Health']}\nDamage = {statDictionary['Player Damage']}")
         battle_choice = input("1. Regular\n2. Use Power-up\n3. Wild attack(Double damage but causes damage to you as well)\n4. Attempt to run\nInput the number of the option you wish to choose: ")
+        num = battle_choice.isdigit()
+        if num == True:
+            battle_choice = int(battle_choice)
+        else:
+            while num == False:
+                print("Invalid Input")
+                battle_choice = input("1. Regular\n2. Use Power-up\n3. Wild attack(Double damage but causes damage to you as well)\n4. Attempt to run\nInput the number of the option you wish to choose: ")
+                num = battle_choice.isdigit()
+                if num == True:
+                    battle_choice = int(battle_choice)
+
         hit = random.randint(1, 2)
         if battle_choice == 1:
             hit = random.randint(1, 2)
@@ -47,7 +58,43 @@ def battle(monster):
                 statDictionary[f"{monster} Health"] -= statDictionary["Player Damage"]
                 print(statDictionary[f"{monster} Health"])
             else:
-                print("hi")
+                print("You missed!")
+        elif battle_choice == 2:
+            if powerUps[0] in powerUpOptions:
+                iteration = 0
+                for i in powerUpOptions:
+                    print(f"{iteration + 1}. {i}")
+                    iteration += 1
+                power_up_choice = input("Input the name of the power-up you want to use: ")
+                power_up_choice.capitalize()
+                if power_up_choice in powerUps:
+                    if power_up_choice == powerUpOptions[0]:
+                        statDictionary["Player Health"] += 10
+                    if power_up_choice == powerUpOptions[1]:
+                        statDictionary["Player Health"] += 10
+                    if power_up_choice == powerUpOptions[2]:
+                        statDictionary["Player Health"] += 10
+                    if power_up_choice == powerUpOptions[3]:
+                        statDictionary["Player Health"] += 10
+                    if power_up_choice == powerUpOptions[4]:
+                        statDictionary["Player Health"] += 10
+                    if power_up_choice == powerUpOptions[5]:
+                        statDictionary["Player Health"] += 10
+                    if power_up_choice == powerUpOptions[6]:
+                        statDictionary["Player Health"] += 10
+                    else:
+                        escape = True
+                        powerUps.__delitem__["Speed Potion"]
+
+        elif battle_choice == 3:
+            hit = random.randint(1, 2)
+            if hit == 1:
+                print(f"It was a hit! The {monster} lost {statDictionary['Player Damage']} health.")
+                statDictionary[f"{monster} Health"] -= statDictionary["Player Damage"]
+                print(statDictionary[f"{monster} Health"])
+            else:
+                print("You missed!")
+            
 
 battle("Guard")
     
