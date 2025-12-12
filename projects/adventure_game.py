@@ -69,7 +69,7 @@ def user_power_up_choice(escape):
             powerUps.remove("Speed Potion")
     else:
         print("Invalid Input")
-        user_power_up_choice()
+        user_power_up_choice(escape)
         return escape
         
 
@@ -104,7 +104,7 @@ def battle(monster):
         elif battle_choice == 2:
             if powerUps[0]:
                 if powerUps[0] in powerUpOptions:
-                    user_power_up_choice()
+                    user_power_up_choice(escape)
             else:
                 statDictionary["Player Health"] -= 2
                 print(f"You have no power ups, but while looking for one you lost 2 Health\nYour new Health is {statDictionary['Player Health']}")
